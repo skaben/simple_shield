@@ -213,9 +213,11 @@ def main():
             continue
         if config.pins["RELAY_IN"].value() == 0 and manage_data["powerstate"] == "OFF":
             change_state("AUX")
+            manage_data["send_state"] = True
             continue
         if config.pins["KBD_IN"].value() == 0 and manage_data["powerstate"] == "AUX":
             change_state("PWR")
+            manage_data["send_state"] = True
 
 
 main()
